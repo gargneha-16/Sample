@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Credential</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Credentials</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Copado Header Fields --></label>
+        <name>Copado_Header_Fields</name>
+    </fieldSets>
+    <layouts>
+        <layout>Org Credential Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Org Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Authenticate --></label>
+        <name>Authenticate</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Copado DX --></label>
+        <name>Copado_DX</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Open Credential --></label>
+        <name>Open_Credential</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Run All Test --></label>
+        <name>Run_All_Test</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Run Compliance Scan --></label>
+        <name>Run_Compliance_Scan</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Run Static Code Analysis --></label>
+        <name>Run_Static_Code_Analysis</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_to_Deployment --></label>
+        <name>Add_to_Deployment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Validate_Org --></label>
+        <name>Validate_Org</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserStoryCommit</fullName>
+    <fields>Name</fields>
+    <fields>Project__c</fields>
+    <fields>Org_Credential__c</fields>
+    <label>User Story Commit</label>
+</CompactLayout>

@@ -1,0 +1,66 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-account" title="account">
+                        <lightning-icon icon-name="standard:service_report" size="small"></lightning-icon>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span>{label.DefinitionofDone}</span>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <button class="slds-button slds-button_neutral" onclick={navigateToNewTestRecord}>{label.New}</button>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-p-horizontal_x-small slds-m-bottom_large">
+            <template iterator:test={tests}>
+                <lightning-card key={test.value.id}>
+                    <p slot="title">
+                        <template if:true={test.value.isSuccess}>
+                            <lightning-icon icon-name="utility:success" size="small" variant="success"></lightning-icon>
+                        </template>
+
+                        <template if:false={test.value.isSuccess}>
+                            <span class="dot"></span>
+                        </template>
+
+                        <a href={test.value.url} target="_blank" class="slds-m-left--x-small slds-truncate text-link">{test.value.name}</a>
+                    </p>
+
+                    <lightning-button-menu slot="actions" data-id={test.value.id} onselect={handleRowAction}>
+                        <lightning-menu-item value={label.Edit} label={label.Edit}></lightning-menu-item>
+                        <lightning-menu-item value={label.Delete} label={label.Delete}></lightning-menu-item>
+                    </lightning-button-menu>
+
+                    <table class="slds-table_cell-buffer">
+                        <tbody>
+                            <tr>
+                                <td class="slds-size_1-of-2" scope="col">
+                                    <div class="slds-truncate grey-color slds-m-left_medium" title={label.Level}>{label.Level}</div>
+                                </td>
+                                <td class="slds-size_1-of-2" scope="col">
+                                    <div class="slds-truncate grey-color slds-m-left_medium" title={label.TestType}>{label.TestType}</div>
+                                </td>
+                            </tr>
+                            <tr class="slds-hint-parent">
+                                <td class="slds-size_1-of-2">
+                                    <div class="slds-truncate slds-m-left_medium" title={test.value.level}>{test.value.level}</div>
+                                </td>
+                                <td class="slds-size_1-of-2">
+                                    <div class="slds-truncate slds-m-left_medium" title={test.value.type}>{test.value.type}</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="slds-card__footer slds-border_top" if:false={test.last}></div>
+                </lightning-card>
+            </template>
+        </div>
+    </article>
+</template>

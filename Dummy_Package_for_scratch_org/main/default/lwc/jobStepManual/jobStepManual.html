@@ -1,0 +1,30 @@
+<template>
+    <lightning-textarea
+        class="slds-size_xx-large validValue"
+        name="taskDescription"
+        label={label.Task_Description}
+        value={taskDescription}
+        onchange={handleDescriptionChange}
+        required>
+    </lightning-textarea>
+
+    <lightning-layout>
+        <lightning-layout-item class="slds-p-right_medium" size="6">
+            <c-lookup
+                label={label.Task_Owner}
+                onsearch={handleLookupSearch}
+                onselectionchange={getSelectedId}
+                required>
+            </c-lookup>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <lightning-combobox
+                name="notificationType"
+                label={label.Notify_Task_Owner}
+                value={notificationType}
+                options={notificationTypes}
+                onchange={handleTypeChange}
+            ></lightning-combobox>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

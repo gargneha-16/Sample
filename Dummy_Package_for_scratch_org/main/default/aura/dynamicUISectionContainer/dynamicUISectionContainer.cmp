@@ -1,0 +1,6 @@
+<aura:component controller="UISectionHelper" access="global" implements="flexipage:availableForAllPageTypes" extends="c:utils">
+    <aura:attribute name="locationId" type="String" access="global"/>
+    <!--TODO replace messageChannel and its communications for dynamic rendering with a DynamicRenderingCommunication message channel-->
+    <lightning:messageChannel aura:id="messageChannel" type="CommitPageCommunication__c" onMessage="{!c.handleMessageSubscription}" />
+    {! v.body }
+</aura:component>

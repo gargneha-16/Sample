@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Job Step</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Job Steps</value>
+    </caseValues>
+    <layouts>
+        <layout>Job Step Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- JSON --></label>
+            <section>JSON</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Execute Manual Step --></label>
+        <name>ExecuteManualStep</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Execution Sequence is required for Deployment steps --></errorMessage>
+        <name>Execution_Sequence_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- JobTemplate, Execution, or User Story is required --></errorMessage>
+        <name>Template_OR_Execution_Is_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

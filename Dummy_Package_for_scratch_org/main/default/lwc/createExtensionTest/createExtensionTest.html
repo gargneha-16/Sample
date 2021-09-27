@@ -1,0 +1,47 @@
+<template>
+    <div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal__container">
+        <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsubmit={handleSubmit} onsuccess={handleSuccess}>
+            <div class="slds-modal__header">
+                <h2 class="slds-text-heading--medium">{labels.NewTestRecordModalTitle}</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium slds-p-bottom_xx-large slds-grid slds-wrap">
+                <lightning-input-field class="slds-size--1-of-2 slds-p-horizontal_medium" field-name="Name"> </lightning-input-field>
+
+                <lightning-combobox
+                    class="slds-size--1-of-2 slds-p-horizontal_medium"
+                    label={labels.TestType}
+                    options={categories}
+                    placeholder={labels.ChooseTestType}
+                    onchange={handleSelectedCategory}
+                ></lightning-combobox>
+
+                <lightning-input-field
+                    class="slds-size--1-of-2 slds-p-horizontal_medium"
+                    field-name={fields.TEST_USER_STORY.fieldApiName}
+                ></lightning-input-field>
+
+                <lightning-combobox
+                    class="slds-size--1-of-2 slds-p-horizontal_medium"
+                    label={labels.Tool}
+                    options={tools}
+                    placeholder={labels.ChooseTestTool}
+                    onchange={handleSelectedTool}
+                ></lightning-combobox>
+
+                <lightning-input-field
+                    class="slds-size--1-of-2 slds-p-horizontal_medium"
+                    field-name={fields.TEST_FEATURE.fieldApiName}
+                ></lightning-input-field>
+
+                <div class="slds-size--1-of-2 slds-p-horizontal_medium">
+                    <lightning-input-field class="slds-p-around_none" field-name={fields.TEST_APPLICATION.fieldApiName}></lightning-input-field>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <lightning-button class="slds-m-right_small" variant="neutral" label={labels.Cancel} onclick={handleCancel}></lightning-button>
+                <lightning-button variant="brand" type="submit" label={labels.Save}></lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+    <div id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+</template>

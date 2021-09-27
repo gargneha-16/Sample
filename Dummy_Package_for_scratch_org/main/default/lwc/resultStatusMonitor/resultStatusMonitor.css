@@ -1,0 +1,14 @@
+.slds-popover_tooltip {
+    position: absolute;
+}
+
+.in-progress-tooltip {
+    top: -53px;
+    left: -13px;
+    width: 86px;
+}
+
+.inactive-tooltip {
+    top: 11px;
+    left: 10px;
+}

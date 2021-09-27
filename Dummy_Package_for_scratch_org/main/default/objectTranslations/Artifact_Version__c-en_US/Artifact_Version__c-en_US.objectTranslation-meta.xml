@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Package Version</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Package Versions</value>
+    </caseValues>
+    <layouts>
+        <layout>Artifact Version Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Package Version Details --></label>
+            <section>Package Version Details</section>
+        </sections>
+        <sections>
+            <label><!-- Release Details --></label>
+            <section>Release Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Lock Bundle --></label>
+        <name>Lock_Bundle</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Merge_Version --></label>
+        <name>Merge_Version</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Promote_Beta_to_Released --></label>
+        <name>Promote_Beta_to_Released</name>
+    </webLinks>
+</CustomObjectTranslation>

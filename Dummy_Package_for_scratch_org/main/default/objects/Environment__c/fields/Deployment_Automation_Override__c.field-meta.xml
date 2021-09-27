@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deployment_Automation_Override__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Select an Automation Template to override the default Deployment Behaviour defined in the Pipeline</inlineHelpText>
+    <label>Deployment Automation Override</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only active automation templates are allowed</errorMessage>
+        <filterItems>
+            <field>Deployment__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Automation Template</value>
+        </filterItems>
+        <filterItems>
+            <field>Deployment__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Deployment__c</referenceTo>
+    <relationshipLabel>Environments (Deployment Automation Override)</relationshipLabel>
+    <relationshipName>DeploymentAutomationEnvironments</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

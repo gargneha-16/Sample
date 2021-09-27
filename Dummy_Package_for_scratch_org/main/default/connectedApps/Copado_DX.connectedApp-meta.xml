@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>ngarg@copado.com</contactEmail>
+    <label>Copado DX</label>
+    <oauthConfig>
+        <callbackUrl>http://localhost:1717/OauthRedirect</callbackUrl>
+        <certificate>MIIC8TCCAdkCFERQgQni5woEAy2d2HOnLr7nDc1jMA0GCSqGSIb3DQEBCwUAMDQxCzAJBgNVBAYTAlVTMQ8wDQYDVQQKDAZDb3BhZG8xFDASBgNVBAMMC3d3dy5jb3BhLmRvMCAXDTIxMDkyNDEyMjk1MVoYDzIxMzEwNDAxMTIyOTUxWjA0MQswCQYDVQQGEwJVUzEPMA0GA1UECgwGQ29wYWRvMRQwEgYDVQQDDAt3d3cuY29wYS5kbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKfzCDpbp/Frw+GRjABHfbCKT8r7WePIGo+smG6ddldnJwjrmeg9FHvIlyR5ax5gUWqsGKpgpIim7ibZEqFk5vv8vamehebQarMcMa7mcq3w/ONK+ASJdZ3E06AVJMQQxIz2Lb+YMVvy4MndHwhi1Jrgrd1jq1I02EI7/9y3ezHKL7P50YhuyIoCG4Mgk8/QmRXJVguKiUn0Eq5sOGg2qQ+ui2JktivIYXLnWuO+WwjtwO5DXTULOi5YhPerExOUbHfwv96QVSwHg3/+iOlRSd3WPTbZ+BDlden4mizWU7jnwDAFmtfyLbDvMtyqYfnzGeD6ZD/DiI3qDtNC9hExsGUCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAJCKmX83gGCEUXCWdRD8DhvRIlRY2IIUQHD2ApZB2xFMdGC6vdz3KW9n8ZbeZHVEpzhRVzYJItqJ4NvN3NvIvYvwfVm/GYvlOC0GMwLrq+wee6R71Dk+3ArFnl6JaKLbM9LPjNaQyvQ5mLc3L0pUbPUlZL/Ec3DFRKRwOLfeaySh6e/samQn3al6yMA3bJ6FQe5g4MWvW6Atit3WJY4GZFMhPouV/IWK/Hcc38S8KB9v/aPDadDd72pCMf1wKPb77Pvh3hWSsbTImRTiIi0M+937bHp6g3yh+yTFl6CnoZN8DiKEaKEqGRNTcpsESxB0Sum/Z23+mL+o7RQ3Ef0+JcQ==</certificate>
+        <consumerKey>d1936979477f4797b7fd9ac2acf50d8fdc067ec09a154c9ba4fda576551351e4</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <profileName>System Administrator</profileName>
+</ConnectedApp>

@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-card>
+            <template if:true={_showDetail}>
+                <div slot="title">
+                    {_recordDetail.mainTitle}
+                </div>
+
+                <template for:each={_recordDetail.resultDetails} for:item="record">
+                    <c-result-detail
+                        key={record.resultId}
+                        record-id={record.resultId}
+                        job-step-id={record.jobStepId}
+                        job-step-label={record.jobStepLabel}
+                        job-step-object-api-name={record.jobStepObjectApiName}
+                        result-id={record.resultId}
+                        result-value={record.resultValue}
+                        result-label={record.resultLabel}
+                        result-object-api-name={record.resultObjectApiName}
+                    ></c-result-detail>
+                </template>
+
+                <div class="slds-text-align_center slds-p-vertical_xx-small">
+                    <lightning-button label="View Job Execution" onclick={navigateToJobExecution} variant="base"></lightning-button>
+                </div>
+            </template>
+        </lightning-card>
+    </div>
+</template>

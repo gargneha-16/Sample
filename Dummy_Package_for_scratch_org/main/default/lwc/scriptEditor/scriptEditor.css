@@ -1,0 +1,13 @@
+.CodeMirror {
+    font-size: 14px;
+    height: auto;
+}
+
+.header {
+    display: inline-block;
+    width: 100%;
+}
+
+.script-icon {
+    vertical-align: super;
+}

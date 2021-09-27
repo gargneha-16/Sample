@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-spinner if:true={showSpinner}> </lightning-spinner>
+
+        <header class="slds-modal__header">
+            <div>
+                <h2 class="slds-text-heading_medium slds-hyphenate">
+                    {header}
+                </h2>
+            </div>
+        </header>
+
+        <div class="slds-modal__content slds-p-around_medium">
+            <p class="custom-margin-p">
+                <c-copado-alert-place-holder communication-id={modalCommunicationId}></c-copado-alert-place-holder>
+            </p>
+
+            <p class="custom-margin-p">
+                {body}
+            </p>
+
+            <template if:true={deploymentJobExecuted}>
+                <p class="custom-margin-p">
+                    {label.Merge_and_deploy_not_changed}
+                </p>
+                <p>
+                    <lightning-radio-group options={options} onchange={getSelection} value={optionSelected} type="radio"></lightning-radio-group>
+                </p>
+            </template>
+        </div>
+
+        <footer class="slds-modal__footer">
+            <lightning-button label={label.Cancel} title={label.Cancel} variant="neutral" onclick={handleCancel}> </lightning-button>
+            <template if:true={promotionHasUserStories}>
+                <lightning-button
+                    class="slds-m-left_x-small"
+                    label={label.Merge_and_Deploy}
+                    title={label.Merge_and_Deploy}
+                    variant="brand"
+                    onclick={handleConfirm}
+                ></lightning-button>
+            </template>
+        </footer>
+    </div>
+</template>

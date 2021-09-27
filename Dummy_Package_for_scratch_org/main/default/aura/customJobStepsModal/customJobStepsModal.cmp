@@ -1,0 +1,53 @@
+<aura:component controller="CustomJobStepController" implements="force:lightningQuickAction,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+
+    <aura:attribute name="modalTitle" type="String" access="private"/>    
+    <aura:attribute name="namespace" type="String" access="private"/>    
+    <aura:attribute name="stepName" type="String" access="private"/>
+    <aura:attribute name="stepCustomType" type="String" access="private"/>
+    <aura:attribute name="stepType" type="String" access="private"/>
+    <aura:attribute name="configJson" type="String" access="private"/>
+    <aura:attribute name="stepOptions" type="Map" access="private"/>
+    <aura:attribute name="componentsByType" type="Map" access="private"/>
+    <aura:attribute name="step" type="JobStep__c" default="{ 'sobjectType' : 'JobStep__c' }" access="private"/>
+    <aura:attribute name="componentBody" type="Aura.Component" access="private"/>
+    
+    <lightning:navigation aura:id="navService"/>
+
+    <div class="slds-modal slds-fade-in-open slds-modal_medium">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <div data-id="titleContainer">
+                    <h2 class="slds-text-heading_medium slds-hyphenate" data-id="title">
+                        {!v.modalTitle}
+                    </h2>
+                </div>
+            </header>
+            <div class="slds-modal__content slds-var-p-around_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2 slds-var-p-around_small">
+                        <lightning:input aura:id="step-name" required="true" label="{!$Label.c.NAME}" value="{!v.stepName}" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-var-p-around_small">
+                        <lightning:combobox required="true" label="{!$Label.c.TYPE}" value="{!v.stepCustomType}" options="{!v.stepOptions}" onchange="{!c.switchView}"/>
+                    </div>
+                    <div class="slds-col slds-size_2-of-2">
+                        <lightning:card>
+                            <div class="slds-page-header slds-text-heading_small slds-var-m-bottom_medium slds-var-p-around_x-small">
+                                {!$Label.c.Step_Details}
+                            </div>
+                            {!v.componentBody}
+                        </lightning:card>
+                    </div>
+                </div>
+            </div>
+            <footer class="slds-modal__footer" data-id="footer">
+                <lightning:button variant="neutral" label="{!$Label.c.Cancel}" title="{!$Label.c.Cancel}" onclick="{!c.handleCancel}">
+                </lightning:button>
+                <lightning:button variant="brand" class="slds-var-m-left_x-small" label="{!$Label.c.Save}" title="{!$Label.c.Save}" onclick="{!c.handleSave}">
+                </lightning:button>
+            </footer>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

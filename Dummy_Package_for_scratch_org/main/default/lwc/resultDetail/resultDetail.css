@@ -1,0 +1,39 @@
+.custom-box {
+    box-sizing: border-box;
+    border-bottom: 1px solid #dbdbdb;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.custom-result-icon {
+    position: relative;
+    display: block;
+    margin-left: 10px;
+}
+
+.THIS .custom-result-icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.custom-result-spinner {
+    margin-left: 20px;
+}
+
+.custom-result-spinner-text {
+    margin-left: 13px;
+}
+
+.slds-button {
+    line-height: inherit !important;
+}
+
+.slds-icon-utility-clock .slds-icon_container {
+    --sds-c-icon-color-foreground-default: #3b84c4;
+    --sds-c-icon-color-foreground: #3b84c4;
+    --sds-c-icon-color-background: #3b84c4;
+}
+
+.custom-padding {
+    padding-left: 12px;
+}

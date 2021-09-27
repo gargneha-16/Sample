@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Copado Header Fields --></label>
+        <name>Copado_Header_Fields</name>
+    </fieldSets>
+    <layouts>
+        <layout>Release Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Advanced --></label>
+            <section>Advanced</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- please dont include spaces in version field --></errorMessage>
+        <name>Validate_spaces_in_version</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Mass_add_to_Release --></label>
+        <name>Mass_add_to_Release</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Base_Branch --></label>
+        <name>Select_Base_Branch</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,3 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,lightning:isUrlAddressable">
+    <c:createExtensionTest recordId="{!v.recordId}" />
+</aura:component>

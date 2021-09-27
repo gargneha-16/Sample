@@ -1,0 +1,22 @@
+<template>
+    <lightning-spinner if:true={loading} alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+
+    <div class="header">
+        <lightning-icon icon-name="standard:code_playground" class="script-icon" alternative-text="Script" title="Script"></lightning-icon>
+        <span class="slds-text-heading_medium slds-m-left_small">{label.SCRIPT_LABEL}</span>
+        <span if:false={readOnly}>
+            <lightning-button if:false={editMode} class="slds-float_right" label={label.EDIT} variant="neutral" onclick={edit}></lightning-button>
+        </span>
+    </div>
+    
+    <div class="slds-m-top_small slds-m-bottom_small container" lwc:dom="manual"></div>
+
+    <footer class="slds-card__footer">
+        <div if:false={readOnly}>
+            <lightning-button-group>
+                <lightning-button if:true={editMode} label={label.CANCEL} variant="neutral" onclick={cancel}></lightning-button>
+                <lightning-button if:true={editMode} label={label.SAVE} variant="brand" onclick={save}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </footer>
+</template>

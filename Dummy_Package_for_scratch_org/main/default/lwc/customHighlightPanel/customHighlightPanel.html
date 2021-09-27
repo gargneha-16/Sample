@@ -1,0 +1,43 @@
+<template>
+    <div class="slds-page-header slds-page-header_record-home">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name={iconName}></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span>{title}</span>
+                                    <span class="slds-page-header__title slds-truncate">{recordName}</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions desktop">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <slot name="actions"> </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-page-header__row slds-page-header__row_gutters">
+            <div class="slds-page-header__col-details">
+                <lightning-record-view-form density="comfy" record-id={recordId} object-api-name={sobjectType}>
+                    <ul class="slds-page-header__detail-row slds-var-p-around_x-small" >
+                        <template for:each={formFields} for:item="field">
+                            <li key={field}>
+                                <lightning-output-field field-class="slds-form-element_vertical" field-name={field}> </lightning-output-field>
+                            </li>
+                        </template>
+                    </ul>
+                </lightning-record-view-form>
+            </div>
+        </div>
+    </div>
+</template>

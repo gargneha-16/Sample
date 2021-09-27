@@ -1,0 +1,40 @@
+<template>
+    <div
+        class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light slds-text-align_center">
+        <lightning-icon icon-name="utility:info" alternative-text="info" size="x-small"></lightning-icon>
+        <div class="slds-media__body slds-p-left_x-small fit-content">
+            <p>{label.CreateExtensionInstruction}</p>
+        </div>
+    </div>
+
+    <lightning-spinner if:true={isLoading} alternative-text="Loading" size="large"></lightning-spinner>
+
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item padding="around-small" size="4">
+            <lightning-combobox name="Object" label={label.SelectObject} placeholder={label.SelectObject}
+                options={supportedObjects} onchange={selectObject}></lightning-combobox>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="4">
+            <c-lookup label={label.SelectRecord} onsearch={handleLookupSearch} onselectionchange={addToSelectedRecord}
+                disabled={isLookupDisabled}>
+            </c-lookup>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small " size="4" class="slds-m-top_large">
+            <lightning-button label={label.CreateExtension} onclick={getRecordBundle} variant="brand-outline"
+                disabled={hasNoSelectedRecords}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="12" if:true={hasSelectedRecords}>
+            <lightning-datatable data={selectedRecords} columns={columns} key-field="recordId"
+                onrowaction={handleRowAction} hide-checkbox-column></lightning-datatable>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="12" if:true={serializedBundle}>
+            <lightning-button-icon icon-name={copyIcon} title={label.COPY_TO_CLIPBOARD} alternative-text={label.COPY_TO_CLIPBOARD}
+                onclick={copyToClipboard} class="slds-float_right" variant="bare"></lightning-button-icon>
+            <pre>{serializedBundle}</pre>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

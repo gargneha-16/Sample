@@ -1,0 +1,28 @@
+.text-link {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.grey-color {
+    color: #54698d;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: -0.25rem;
+}
+
+table tr:hover td {
+    background-color: white !important;
+}
+
+.slds-card__footer,
+.slds-card__footer:empty {
+    padding-top: unset !important;
+    padding-bottom: unset !important;
+    display: block;
+}

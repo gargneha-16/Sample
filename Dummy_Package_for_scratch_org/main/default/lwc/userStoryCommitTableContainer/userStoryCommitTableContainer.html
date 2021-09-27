@@ -1,0 +1,63 @@
+<template>
+    <c-datatable-container
+        icon-name="standard:picklist_type"
+        has-body
+        enable-default-search
+        rows={allRows}
+        columns={columns}
+        onsearch={handleApplySearch}
+        onclearsearch={handleClearSearch}
+    >
+        <div slot="title">{tableTitle}</div>
+        <div slot="titleInfo">{itemsTitle}</div>
+
+        <div slot="additionalOperations">
+            <lightning-layout horizontal-align="spread" class="slds-var-m-right_xx-large">
+                <lightning-layout-item flexibility="auto">
+                    <lightning-input
+                        type="toggle"
+                        disabled={previousSelectionsToggleDisabled}
+                        label={label.PREVIOUS_SELECTIONS}
+                        message-toggle-active={label.ENABLED}
+                        message-toggle-inactive={label.DISABLED}
+                        data-element="previous-selections-toggle"
+                        onchange={handleTogglePreviousSelections}
+                    >
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" class="slds-var-m-left_x-small">
+                    <lightning-helptext if:true={previousSelectionsToggleDisabled} content={label.PREVIOUS_SELECTIONS_HELP_TEXT}></lightning-helptext>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <div slot="datatable">
+            <!-- TODO: Which is the preferred height? Hardcoded for now -->
+            <div style="height: 40vh">
+                <lightning-spinner if:true={isLoading} variant="brand" size="large"></lightning-spinner>
+                <c-user-story-commit-table
+                    key-field={keyField}
+                    columns={columns}
+                    data={rows}
+                    default-sort-direction={defaultSortDirection}
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    onsort={handleSort}
+                    column-widths-mode="auto"
+                    selected-rows={selectedRows}
+                    onrowselection={handleRowSelection}
+                    enable-infinite-loading
+                    onloadmore={handleLoadMore}
+                    oncancel={handleCancel}
+                    onsave={handleSave}
+                    draft-values={draftValues}
+                    onchangedraftvalue={handleChangeDraftValue}
+                    oneditcolumn={handleEditColumn}
+                    oncancelmultiedit={handleCancelMultiEdit}
+                    onchangemultidraftvalue={handleChangeMultiDraftValue}
+                >
+                </c-user-story-commit-table>
+            </div>
+        </div>
+    </c-datatable-container>
+</template>

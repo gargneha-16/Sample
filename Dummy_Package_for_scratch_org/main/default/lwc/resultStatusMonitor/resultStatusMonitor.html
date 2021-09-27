@@ -1,0 +1,55 @@
+<template>
+    <lightning-card>
+        <div slot="title">
+            {label.LATEST_UPDATES}
+        </div>
+        <template if:true={record}>
+            <div class="slds-m-around_large">
+                <div role="status" class="slds-spinner_inline">
+                    <template if:true={inProgress}>
+                        <lightning-layout>
+                            <lightning-layout-item class="slds-is-relative" padding="horizontal-small">
+                                <lightning-spinner
+                                    class="spinner"
+                                    alternative-text="Loading"
+                                    size="small"
+                                    variant="brand"
+                                    onmouseover={toggleTooltip}
+                                    onmouseout={toggleTooltip}
+                                ></lightning-spinner>
+                                <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide in-progress-tooltip" role="tooltip">
+                                    <div class="slds-popover__body">{status}</div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <b class="slds-text-color_weak slds-m-left_small">{message}</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </div>
+
+                <template if:false={inProgress}>
+                    <lightning-icon
+                        icon-name={icon.name}
+                        alternative-text={status}
+                        size="small"
+                        variant={icon.variant}
+                        onmouseover={toggleTooltip}
+                        onmouseout={toggleTooltip}
+                    >
+                    </lightning-icon>
+                    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide inactive-tooltip" role="tooltip">
+                        <div class="slds-popover__body">{status}</div>
+                    </div>
+                    <b class="slds-text-color_weak slds-m-left_small">{message}</b>
+                </template>
+
+                <template if:true={showDetailLink}>
+                    <div class="slds-m-top_small">
+                        <lightning-button label="View result" onclick={navigateToResult} variant="base"></lightning-button>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

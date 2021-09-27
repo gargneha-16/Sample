@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>update_status</name>
+        <label>update status</label>
+        <locationX>693</locationX>
+        <locationY>250</locationY>
+        <assignmentItems>
+            <assignToReference>result.Progress_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>callback-executed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>update_result</targetReference>
+        </connector>
+    </assignments>
+    <interviewLabel>MCCallbackHandlerFlowTest {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>MC Callback Handler Test Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_result</name>
+        <label>update result</label>
+        <locationX>525</locationX>
+        <locationY>273</locationY>
+        <inputReference>result</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>update_status</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>function</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Function__c</objectType>
+    </variables>
+    <variables>
+        <name>result</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Result__c</objectType>
+    </variables>
+</Flow>

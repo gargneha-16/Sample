@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Static Code Analysis Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Static Code Analysis Settings</value>
+    </caseValues>
+    <layouts>
+        <layout>CodeScan SCA Settings Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Static Code Analysis Settings Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>V.17 - Static Code Analysis Settings Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>V.17 CodeScan SCA Settings Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Edit code scan --></label>
+        <name>Edit_CodeScan</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit salesforce --></label>
+        <name>Edit_salesforce</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Generate Default Rule Set --></label>
+        <name>Generate_Default_Rule_Set</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Static Code Analysis Settings --></label>
+        <name>Update_PMD_Record_Type</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Record Type for CodeScan integration. Requires CodeScan licensing. --></description>
+        <label><!-- CodeScan --></label>
+        <name>CodeScan</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record Type for free of charge PMD integration --></description>
+        <label><!-- PMD --></label>
+        <name>PMD</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Review the following required fields:
+Cloud Organization is required for Cloud Version.
+SonarQube Token and URL are required for On-premise Version. --></errorMessage>
+        <name>CodeScan_Required_Fields</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Edit_class --></label>
+        <name>Edit_class</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Default_RuleSet --></label>
+        <name>Generate_Default_RuleSet</name>
+    </webLinks>
+</CustomObjectTranslation>

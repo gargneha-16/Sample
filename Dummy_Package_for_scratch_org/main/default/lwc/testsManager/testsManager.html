@@ -1,0 +1,31 @@
+<template>
+    <lightning-layout horizontal-align="end" vertical-align="center" class="slds-p-around_x-small">
+        <lightning-layout-item class="slds-p-right_x-small">
+            <lightning-input value={searchValue} onchange={onSearchFilter} variant="label-hidden" placeholder={label.Search} type="search">
+            </lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <lightning-button label={label.RunTests} onclick={handleRun}> </lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <template if:true={filteredData}>
+        <lightning-datatable
+            key-field="id"
+            columns={columns}
+            data={filteredData}
+            hide-checkbox-column
+            default-sort-direction="asc"
+        ></lightning-datatable>
+
+        <lightning-spinner
+            if:true={isLoading}
+            variant="brand"
+            alternative-text="Loading"
+            size="small"
+            class="slds-align_absolute-center slds-m-top_xxx-small slds-spinner_inline slds-p-top_xx-large"
+        >
+        </lightning-spinner>
+    </template>
+</template>

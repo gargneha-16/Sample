@@ -1,0 +1,79 @@
+<template>
+    <lightning-spinner if:true={loading} alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+
+    <div class="main-container" if:true={data}>
+        <div if:true={hasPlatform}>
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                        <span class="slds-p-right_x-small"><b>{label.PIPELINE_DETAILS}</b></span>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+    
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <lightning-record-edit-form object-api-name={apiNames.PIPELINE}>
+                        <div>
+                            <lightning-input-field field-name={apiNames.PIPELINE_NAME}></lightning-input-field>
+                            <lightning-input-field field-name={apiNames.GIT_REPOSITORY}></lightning-input-field>
+                            <lightning-input-field field-name={apiNames.MAIN_BRANCH}></lightning-input-field>
+                        </div>
+                    </lightning-record-edit-form>
+                </lightning-layout-item>
+            </lightning-layout>
+    
+            <template if:true={hasConnections}>
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small">
+                        <div class="header-column">
+                            <span class="slds-p-right_x-small"><b>{label.ENVIRONMENT_NAMES}</b></span>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+    
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <ol class="slds-has-dividers_bottom slds-list_ordered slds-p-left_small">
+                            <template for:each={environments} for:item="record">
+                                <li key={record.Id} class="slds-p-bottom_x-small slds-item slds-grid">
+                                    <lightning-input
+                                        type="text"
+                                        name="environmentName"
+                                        label={label.NAME}
+                                        value={record.name}
+                                        data-id={record.id}
+                                        onchange={handleEnvironmentNameChange}
+                                        class="environment-name"
+                                        disabled={isSalesforce}
+                                    >
+                                    </lightning-input>
+                                    <lightning-input if:true={record.isSource}
+                                        type="text"
+                                        name="connectionBranch"
+                                        label={label.BRANCH}
+                                        value={record.branch}
+                                        data-id={record.id}
+                                        onchange={handleConnectionBranchChange}
+                                    >
+                                    </lightning-input>
+                                </li>
+                            </template>
+                        </ol>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </div>
+        <div if:false={hasPlatform} class="slds-text-body_regular slds-text-align_center slds-text-color_error">
+            <b>{label.PLATFORM_MISSING}</b>
+        </div>
+    </div>
+
+    <footer class="slds-card__footer">
+        <div>
+            <lightning-button-group class="slds-float_right">
+                <lightning-button if:true={hasPlatform} label={label.SAVE} variant="brand" onclick={save}> </lightning-button>
+            </lightning-button-group>
+        </div>
+    </footer>
+</template>

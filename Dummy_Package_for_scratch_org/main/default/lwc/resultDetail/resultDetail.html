@@ -1,0 +1,60 @@
+<template>
+    <div class="custom-box">
+        <lightning-layout>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control slds-input-has-fixed-addon">
+                    <span class="slds-form-element__addon">
+                        <div class="custom-result-spinner custom-result-icon">
+                            <template if:true={inProgress}>
+                                <lightning-spinner alternative-text="Loading" size="small" variant="brand"></lightning-spinner>
+                            </template>
+                        </div>
+                        <div class="custom-result-icon">
+                            <template if:false={inProgress}>
+                                <lightning-icon
+                                    class="custom-svg-icon"
+                                    icon-name={icon.name}
+                                    alternative-text={status}
+                                    size="small"
+                                    variant={icon.variant}
+                                >
+                                </lightning-icon
+                            ></template>
+                        </div>
+                    </span>
+                    <template if:true={inProgress}>
+                        <b class="slds-text-color_weak custom-result-spinner-text">
+                            <lightning-button label={jobStepLabel} onclick={navigateToJobStep} variant="base"></lightning-button
+                        ></b>
+                    </template>
+                    <template if:false={inProgress}>
+                        <b class="slds-text-color_weak">
+                            <lightning-button label={jobStepLabel} onclick={navigateToJobStep} variant="base"></lightning-button>
+                        </b>
+                    </template>
+                </div>
+            </div>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item class="custom-padding" size="12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-fixed-addon">
+                        <span class="slds-form-element__addon">{message}</span>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item class="custom-padding" size="12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-fixed-addon">
+                        <span class="slds-form-element__addon">{resultLabel}</span>
+                        <lightning-button label={resultValue} onclick={navigateToResult} variant="base"></lightning-button>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

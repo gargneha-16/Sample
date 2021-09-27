@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Update  Account Record" icon-name="standard:record">
+        <div class="slds-m-around_medium">
+            <!--<lightning-input label="Name" onchange={updateValue} class="slds-m-bottom_x-small" value={realFormData.Name}></lightning-input>-->
+            <lightning-input label="Url" onchange={updateValue} class="slds-m-bottom_x-small" value={realFormData.CodeScan_URL__c}></lightning-input>
+            <lightning-input
+                label="Version"
+                onchange={updateValue}
+                class="slds-m-bottom_x-small"
+                value={realFormData.CodeScan_Version__c}
+            ></lightning-input>
+            <lightning-input
+                label="Token"
+                onchange={updateValue}
+                class="slds-m-bottom_x-small"
+                value={realFormData.CodeScan_Token__c}
+            ></lightning-input>
+
+            <lightning-button label="Update  Account" variant="brand" onclick={updateAccount}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

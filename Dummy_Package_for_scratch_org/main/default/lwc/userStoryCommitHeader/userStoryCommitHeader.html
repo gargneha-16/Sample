@@ -1,0 +1,19 @@
+<template>
+    <lightning-spinner if:true={showSpinner} variant="brand" alternative-text={label.LOADING} size="large"> </lightning-spinner>
+    <c-custom-highlight-panel if:true={validEntryPoint} icon-name="standard:merge" title={label.USER_STORY_COMMIT}>
+        <div slot="actions">
+            <lightning-button-group>
+                <lightning-button label={label.BACK_TO_USER_STORY} onclick={handleBack}></lightning-button>
+                <lightning-button label={label.COMMIT_NOW} onclick={handleCommit}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </c-custom-highlight-panel>
+    <lightning-card if:false={validEntryPoint}>
+        <!-- TODO: Which is the preferred height? Hardcoded for now -->
+        <div class="slds-p-around_large slds-align_absolute-center" style="height: 65vh">
+            <c-copadocore-illustration name="error:walkthrough_not_available" size="large" message={label.COMMIT_CHANGES_PAGE_NOT_ACCESSIBLE_TITLE}>
+                <p slot="body">{label.COMMIT_CHANGES_PAGE_NOT_ACCESSIBLE_BODY}</p>
+            </c-copadocore-illustration>
+        </div>
+    </lightning-card>
+</template>

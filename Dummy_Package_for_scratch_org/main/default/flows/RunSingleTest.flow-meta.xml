@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>RunTest</name>
+        <label>Run Test</label>
+        <locationX>980</locationX>
+        <locationY>200</locationY>
+        <actionName>RunTestAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>DisplayResult</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DisplayError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>testId</name>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>resultId</assignToReference>
+            <name>resultId</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>51.0</apiVersion>
+    <interviewLabel>Run Single Test {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Run Single Test</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>DisplayError</name>
+        <label>Display Error</label>
+        <locationX>1182</locationX>
+        <locationY>330</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ErrorResponse</name>
+            <fieldText>&lt;p&gt;Unexpected error during execution:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>DisplayResult</name>
+        <label>Display result</label>
+        <locationX>979</locationX>
+        <locationY>326</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>SuccessfulResponse</name>
+            <fieldText>&lt;p&gt;A &lt;a href=&quot;/{!resultId}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;result record&lt;/a&gt; has been generated&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>853</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>RunTest</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Test__c</objectType>
+    </variables>
+    <variables>
+        <name>resultId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

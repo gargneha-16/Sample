@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Execution Sequence --></label>
+    <name>ExecutionSequence__c</name>
+    <picklistValues>
+        <masterLabel>after</masterLabel>
+        <translation><!-- after --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>before</masterLabel>
+        <translation><!-- before --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

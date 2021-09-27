@@ -1,0 +1,55 @@
+<template>
+    <lightning-layout if:true={areDetailsVisible}>
+        <lightning-layout-item size="12" padding="horizontal-small">
+            <lightning-input
+                type="text"
+                label="ContextId"
+                placeholder="Please enter the context Id"
+                field-level-help="Insert here the context Id, for example DeploymentJobId"
+                value={_contextId}
+                onchange={handleChangeContextId}
+            ></lightning-input> </lightning-layout-item
+    ></lightning-layout>
+
+    <lightning-layout>
+        <lightning-layout-item padding="around-small">
+            <div class="header-column">
+                <span if:false={areDetailsVisible} class="slds-p-right_x-small"><b>{label.Function_Parameters}</b></span>
+                <span if:true={areDetailsVisible} class="slds-p-right_x-small"><b>{label.Overwrite_Parameters}</b></span>
+                <lightning-helptext content={label.Parameters_Field_Help_Text}> </lightning-helptext>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout>
+        <lightning-layout-item size="12">
+            <template for:each={parameters} for:item="parameter" for:index="index">
+                <c-function-parameter
+                    key={uniqueKey}
+                    parameter={parameter}
+                    index={index}
+                    are-details-visible={areDetailsVisible}
+                    onparameterchange={handleParameterChange}
+                    onparameterdelete={handleDeleteParameter}
+                ></c-function-parameter>
+            </template>
+            <div class="slds-m-top_medium">
+                <lightning-button-group>
+                    <lightning-button icon-name="utility:add" label={label.Add_new_parameter} onclick={handleAddParameter}> </lightning-button>
+                </lightning-button-group>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout slot="footer">
+        <lightning-layout-item size="12">
+            <div class="slds-m-top_medium">
+                <lightning-button-group class="slds-float_right">
+                    <lightning-button if:true={areDetailsVisible} label="Next" variant="brand" onclick={handleNext}> </lightning-button>
+                </lightning-button-group>
+                <lightning-button-group class="slds-float_right">
+                    <lightning-button if:false={areDetailsVisible} label={label.Save} variant="brand" onclick={handleSave}> </lightning-button>
+                </lightning-button-group>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CommitJobTemplate__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Select the Job Template that implements the commit action for this Pipeline</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the Job Template that implements the commit action for this Pipeline</inlineHelpText>
+    <label>Commit Job Template</label>
+    <referenceTo>JobTemplate__c</referenceTo>
+    <relationshipLabel>Pipelines (Commit Job Template)</relationshipLabel>
+    <relationshipName>Pipelines2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

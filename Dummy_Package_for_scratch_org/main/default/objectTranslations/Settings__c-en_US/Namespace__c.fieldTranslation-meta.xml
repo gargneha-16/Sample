@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The namespace should contain two underscores &quot;__&quot; e.g. copado__ --></help>
+    <label><!-- Namespace --></label>
+    <name>Namespace__c</name>
+</CustomFieldTranslation>

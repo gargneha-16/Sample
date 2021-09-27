@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute
+        name="locationId"
+        label="{!$Label.ComponentLocationIdentifier}"
+        description="{!$Label.ComponentLocationIdentifierDescription}"
+    />
+</design:component>

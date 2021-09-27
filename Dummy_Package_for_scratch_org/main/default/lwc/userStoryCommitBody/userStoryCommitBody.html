@@ -1,0 +1,26 @@
+<template>
+    <lightning-spinner if:true={showSpinner} variant="brand" alternative-text={label.LOADING} size="large"> </lightning-spinner>
+    <lightning-card>
+        <div class="slds-page-header slds-text-heading_small  slds-var-m-horizontal_medium slds-var-p-around_x-small">{label.GitOperations}</div>
+        <lightning-layout>
+            <!-- Should this actually be required? We are providing a default value in the commit action -->
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-input type="text" name="commitMessage" label={label.Commit_Message} placeholder={label.TypeCommitMessage} value={commitMessage} onchange={handleInputChange} required></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item if:true={reCreateFeatureBranchAvailable} flexibility="auto" padding="around-small">
+                <lightning-input type="checkbox" name="reCreate" label={label.ReCreateFeatureBranch} variant="label-stacked" value={reCreate} onchange={handleCheckBoxChange}></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout if:true={editBaseBranchAvailable}>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <!-- Toggle works outside: https://salesforce.stackexchange.com/a/147833/84580 -->
+                <lightning-input type="toggle" name="changeBaseBranch" label={label.ChangeBaseBranch} message-toggle-active={label.Enabled} message-toggle-inactive={label.Disabled} value={changeBaseBranch} onchange={handleCheckBoxChange}></lightning-input>
+            </lightning-layout-item>
+            <template if:true={changeBaseBranch}>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <lightning-input type="text" name="selectBaseBranch" label={label.SelectBaseBranch} placeholder={label.SearchBranches} value={baseBranch} onchange={handleInputChange} required></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

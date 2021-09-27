@@ -1,0 +1,37 @@
+<template>
+    <c-copadocore-modal size="large" hide-close>
+        <span slot="title">{label.Add_User_Stories}</span>
+        <slot class="slds-align_absolute-center">
+            <div class="slds-size_xx-large slds-is-relative">
+                <lightning-spinner if:true={showSpinner} variant="brand" alternative-text="Loading" size="large"> </lightning-spinner>
+
+                <c-related-list
+                    table-info={tableInfo}
+                    record-size="25"
+                    height={height}
+                    hide-title
+                    enable-infinite-loading
+                    hide-new-action
+                    show-search
+                    hide-footer
+                    table-info-has-editable-columns
+                    custom-handle-save
+                    onrowselection={handleRowSelection}
+                >
+                </c-related-list>
+            </div>
+        </slot>
+        <span slot="footer">
+            <lightning-button label={label.Cancel} title={label.Cancel} variant="neutral" onclick={handleCancel}> </lightning-button>
+            <lightning-button
+                disabled={removeSaveButtonDisabled}
+                class="slds-m-left_x-small"
+                label={label.Save}
+                title={label.Save}
+                variant="brand"
+                onclick={handleSave}
+            >
+            </lightning-button>
+        </span>
+    </c-copadocore-modal>
+</template>

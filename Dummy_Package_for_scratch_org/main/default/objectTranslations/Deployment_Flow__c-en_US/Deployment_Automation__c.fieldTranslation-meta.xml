@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- List of steps to be used when deploying promoted user stories to a destination environment. --></help>
+    <label><!-- Deployment Automation --></label>
+    <lookupFilter>
+        <errorMessage><!-- Only active automation templates are allowed --></errorMessage>
+    </lookupFilter>
+    <name>Deployment_Automation__c</name>
+    <relationshipLabel><!-- Pipelines (Deployment Automation) --></relationshipLabel>
+</CustomFieldTranslation>
